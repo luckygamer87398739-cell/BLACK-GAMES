@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BLACK GAME - Welcome</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    background:#050505;
+    overflow:hidden;
+}
+
+/* Animated Background */
+
+body::before{
+    content:"";
+    position:absolute;
+    width:250%;
+    height:250%;
+    background:
+    radial-gradient(circle,#b300ff 0%,transparent 25%),
+    radial-gradient(circle,#6200ff 0%,transparent 30%),
+    radial-gradient(circle,#4d00aa 0%,transparent 20%);
+    filter:blur(120px);
+    animation:rotateBG 20s linear infinite;
+    opacity:.55;
+}
+
+@keyframes rotateBG{
+    from{
+        transform:rotate(0deg);
+    }
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+/* Floating Glow Balls */
+
+.ball{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(15px);
+    animation:float 7s ease-in-out infinite;
+}
+
+.ball1{
+    width:180px;
+    height:180px;
+    background:#8a2be2;
+    top:8%;
+    left:8%;
+}
+
+.ball2{
+    width:250px;
+    height:250px;
+    background:#5a00ff;
+    bottom:8%;
+    right:8%;
+    animation-delay:2s;
+}
+
+@keyframes float{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-35px);
+    }
+}
+
+/* Glass Card */
+
+.card{
+    position:relative;
+    z-index:10;
+    width:600px;
+    text-align:center;
+    padding:50px;
+    border-radius:25px;
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(18px);
+    border:1px solid rgba(255,255,255,.2);
+    box-shadow:
+    0 0 40px rgba(183,0,255,.5),
+    inset 0 0 20px rgba(255,255,255,.08);
+    animation:fadeIn 1.5s ease;
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(60px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+h1{
+    color:white;
+    font-size:60px;
+    letter-spacing:5px;
+    text-shadow:
+    0 0 10px white,
+    0 0 25px #b300ff,
+    0 0 50px #b300ff,
+    0 0 90px #b300ff;
+    animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+    from{
+        text-shadow:
+        0 0 10px white,
+        0 0 20px #b300ff,
+        0 0 40px #b300ff;
+    }
+    to{
+        text-shadow:
+        0 0 20px white,
+        0 0 40px #ff00ff,
+        0 0 90px #ff00ff;
+    }
+}
+
+p{
+    color:#ddd;
+    margin-top:20px;
+    font-size:20px;
+    letter-spacing:2px;
+}
+
+.line{
+    width:180px;
+    height:4px;
+    margin:25px auto;
+    background:linear-gradient(90deg,#6200ff,#ff00ff);
+    border-radius:10px;
+    box-shadow:0 0 20px #b300ff;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:35px;
+    padding:15px 45px;
+    border-radius:50px;
+    text-decoration:none;
+    color:white;
+    font-size:18px;
+    font-weight:bold;
+    background:linear-gradient(90deg,#6200ff,#ff00ff);
+    transition:.4s;
+    box-shadow:0 0 25px #b300ff;
+}
+
+.btn:hover{
+    transform:scale(1.08);
+    box-shadow:0 0 45px #ff00ff;
+}
+</style>
+
+</head>
+<body>
+
+<div class="ball ball1"></div>
+<div class="ball ball2"></div>
+
+<div class="card">
+
+<h1>WELCOME</h1>
+
+<div class="line"></div>
+
+<p>Access Granted Successfully</p>
+<p>Welcome to <b>BLACK GAME</b></p>
+
+<a href="#" class="btn">ENTER</a>
