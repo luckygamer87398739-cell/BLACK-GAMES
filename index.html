@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BLACK GAME Login</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    background:#050505;
+}
+
+/* Animated Background */
+
+body::before{
+    content:"";
+    position:absolute;
+    width:250%;
+    height:250%;
+    background:
+    radial-gradient(circle,#9d00ff 0%,transparent 30%),
+    radial-gradient(circle,#6a00ff 0%,transparent 25%),
+    radial-gradient(circle,#290663a2 0%,transparent 20%);
+    animation:bgRotate 20s linear infinite;
+    filter:blur(120px);
+    opacity:.5;
+}
+
+@keyframes bgRotate{
+    from{transform:rotate(0deg);}
+    to{transform:rotate(360deg);}
+}
+
+/* Floating Orbs */
+
+.orb{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(10px);
+    animation:float 8s ease-in-out infinite;
+}
+
+.orb1{
+    width:180px;
+    height:180px;
+    background:#8c00ff;
+    top:10%;
+    left:10%;
+}
+
+.orb2{
+    width:250px;
+    height:250px;
+    background:#4d00aa;
+    bottom:8%;
+    right:10%;
+    animation-delay:2s;
+}
+
+@keyframes float{
+    0%,100%{
+        transform:translateY(0px);
+    }
+    50%{
+        transform:translateY(-30px);
+    }
+}
+
+/* Login Box */
+
+.login-box{
+    position:relative;
+    z-index:5;
+    width:380px;
+    padding:40px;
+    border-radius:20px;
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(18px);
+    border:1px solid rgba(255,255,255,.2);
+    box-shadow:
+    0 0 30px rgba(170,0,255,.4),
+    inset 0 0 20px rgba(255,255,255,.05);
+    animation:fadeIn 1.2s ease;
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(50px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.logo{
+    text-align:center;
+    font-size:50px;
+    font-weight:bold;
+    letter-spacing:8px;
+    color:white;
+    margin-bottom:30px;
+    text-shadow:
+    0 0 10px white,
+    0 0 20px #bb00ff,
+    0 0 50px #bb00ff;
+}
+
+.input-box{
+    margin-bottom:20px;
+}
+
+.input-box input{
+    width:100%;
+    padding:15px;
+    border:none;
+    outline:none;
+    border-radius:12px;
+    background:rgba(255,255,255,.08);
+    color:white;
+    font-size:16px;
+    transition:.3s;
+}
+
+.input-box input::placeholder{
+    color:#ccc;
+}
+
+.input-box input:focus{
+    box-shadow:0 0 20px #bb00ff;
+    border:1px solid #bb00ff;
+}
+
+button{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:12px;
+    cursor:pointer;
+    background:linear-gradient(90deg,#7000ff,#d000ff);
+    color:white;
+    font-size:18px;
+    font-weight:bold;
+    transition:.3s;
+}
+
+button:hover{
+    transform:scale(1.05);
+    box-shadow:0 0 25px #bb00ff;
+}
+
+.footer{
+    margin-top:20px;
+    text-align:center;
+    color:#ddd;
+    font-size:14px;
+}
+
+.footer a{
+    color:#d000ff;
+    text-decoration:none;
+}
+</style>
+
+</head>
+<body>
+
+<div class="orb orb1"></div>
+<div class="orb orb2"></div>
+
+<div class="login-box">
+
+<div class="logo">BLACK GAME</div>
+
+<div class="input-box">
+<input type="text" id="username" placeholder="Username">
+</div>
+
+<div class="input-box">
+<input type="password" id="password" placeholder="Password">
+</div>
+
+<button onclick="login()">LOGIN</button>
+
+<div class="footer">
+Forgot Password? <a href="#">Reset</a>
+</div>
+
+</div>
+<script>
+function login() {
+
+    let username = document.getElementById("username").value;
+    let password = document.getElementById("password").value;
+
+    if (username === "black" && password === "alina") {
+        window.location.href = "home.html"; // Agla page
+    } else {
+        alert("Wrong Username or Password!");
+    }
+
+}
+</script>
+</body>
+</html>
